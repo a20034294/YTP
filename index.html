@@ -1,55 +1,62 @@
 <html>
 <head>
 <title>陳奕嘉坐在我旁邊</title>
-  <!--文繞游標_開始-->
+ <!--星點圍繞_開始-->
 <script language="JavaScript">
 <!--
-if (document.all) {
-<!--在此修改要顯示的文字-->
-yourLogo = "歡迎光臨Asianhollo";
-<!--在此修改文字的顏色-->
-logoColor = "FF0000";
-yourLogo = yourLogo.split('');
-L = yourLogo.length; 
-TrigSplit = 360 / L;
-Sz = new Array()
-<!--在此修改文繞圈的寬度-->
-logoWidth = 100;
-<!--在此修改文繞圈的高度-->
-logoHeight = -30;
-ypos = 0;
-xpos = 0;
-step = 0.03;
-currStep = 0;
-document.write('<div id="outer" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
-for (i = 0; i < L; i++) {
-document.write('<div id="ie" style="position:absolute;top:0px;left:0px;'
-+'width:10px;height:10px;font-size:12px;'
-+'color:'+logoColor+';text-align:center">'+yourLogo[i]+'</div>');
-}
+if (document.all){
+colours=new Array('ff0000','00ff00','3366ff','ff00ff','ffa500','ffffff','fff000')
+amount=colours.length;
+YgetDelay=0,XgetDelay=0,Ydelay=0,Xdelay=0,step=0.2,currStep=0,my=0,mx=0;
+document.write('<div id="ie" style="position:absolute;top:0;left:0;"><div style="position:relative">');
+for (i=0; i < amount; i++)
+document.write('<div id="iestars" style="position:absolute;top:0px;left:0px;height:50px;width:50px;font-family:Courier New;font-size:5px;color:'+colours[i]+';padding-top:20px;text-align:center">.</div>');
 document.write('</div></div>');
-function Mouse() {
-ypos = event.y;
-xpos = event.x - 5;
+ini=1;
+gstep=1;
+function iMouse(){
+my=event.y;mx=event.x;
 }
-document.onmousemove=Mouse;
-function animateLogo() {
-outer.style.pixelTop = document.body.scrollTop; 
-for (i = 0; i < L; i++) {
-ie[i].style.top = ypos + logoHeight * Math.sin(currStep + i * TrigSplit * Math.PI / 180);
-ie[i].style.left = xpos + logoWidth * Math.cos(currStep + i * TrigSplit * Math.PI / 180);
-Sz[i] = ie[i].style.pixelTop - ypos;
-if (Sz[i] < 5) Sz[i] = 5;
-ie[i].style.fontSize = Sz[i] / 1.7;
+document.onmousemove=iMouse
+function dim(){
+ini-=gstep;
+dt=setTimeout('dim()',10);
+if (ini < 2){
+clearTimeout(dt);
+glow();
 }
-currStep -= step;
-setTimeout('animateLogo()', 20);
 }
-window.onload = animateLogo;
+function glow(){
+ini+=gstep;
+gt=setTimeout('glow()',10);
+if (ini > 14){
+clearTimeout(gt);
+dim();
+}
+}
+function stars(){
+ie.style.top=document.body.scrollTop;
+for (i=0; i < amount; i++)
+ {
+ var layer=iestars[i].style; 
+ layer.filter='glow(color='+colours[i]+', strength='+ini+')';
+ layer.top= Ydelay+100*Math.sin((5*Math.sin((currStep-15.99)/10))+i*70)*Math.sin((currStep)/10)*Math.cos((currStep+i*25)/10); 
+ layer.left=Xdelay+180*Math.cos((5*Math.sin((currStep-15.99)/10))+i*70)*Math.sin((currStep)/10)*Math.cos((currStep+i*25)/10);
+ }
+currStep+=step;
+}
+function delay(){
+Ydelay = YgetDelay+=(my-YgetDelay)*1/20;
+Xdelay = XgetDelay+=(mx-XgetDelay)*1/20;
+stars();
+setTimeout('delay()',10);
+}
+delay();
+glow();
 }
 -->
 </script>
-<!--文繞游標_結束-->
+<!--星點圍繞_結束-->
 </head>
 <body></body>
 </html>
