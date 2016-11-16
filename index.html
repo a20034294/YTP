@@ -2,6 +2,55 @@
 <head>
 <title>陳奕嘉坐在我旁邊</title>
 <script language="JavaScript" src="src.js"></script>
+  <!--文繞游標_開始-->
+<script language="JavaScript">
+<!--
+if (document.all) {
+<!--在此修改要顯示的文字-->
+yourLogo = "歡迎光臨Asianhollo";
+<!--在此修改文字的顏色-->
+logoColor = "FF0000";
+yourLogo = yourLogo.split('');
+L = yourLogo.length; 
+TrigSplit = 360 / L;
+Sz = new Array()
+<!--在此修改文繞圈的寬度-->
+logoWidth = 100;
+<!--在此修改文繞圈的高度-->
+logoHeight = -30;
+ypos = 0;
+xpos = 0;
+step = 0.03;
+currStep = 0;
+document.write('<div id="outer" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+for (i = 0; i < L; i++) {
+document.write('<div id="ie" style="position:absolute;top:0px;left:0px;'
++'width:10px;height:10px;font-size:12px;'
++'color:'+logoColor+';text-align:center">'+yourLogo[i]+'</div>');
+}
+document.write('</div></div>');
+function Mouse() {
+ypos = event.y;
+xpos = event.x - 5;
+}
+document.onmousemove=Mouse;
+function animateLogo() {
+outer.style.pixelTop = document.body.scrollTop; 
+for (i = 0; i < L; i++) {
+ie[i].style.top = ypos + logoHeight * Math.sin(currStep + i * TrigSplit * Math.PI / 180);
+ie[i].style.left = xpos + logoWidth * Math.cos(currStep + i * TrigSplit * Math.PI / 180);
+Sz[i] = ie[i].style.pixelTop - ypos;
+if (Sz[i] < 5) Sz[i] = 5;
+ie[i].style.fontSize = Sz[i] / 1.7;
+}
+currStep -= step;
+setTimeout('animateLogo()', 20);
+}
+window.onload = animateLogo;
+}
+-->
+</script>
+<!--文繞游標_結束-->
 </head>
 <body></body>
 </html>
