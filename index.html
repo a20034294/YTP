@@ -30,7 +30,7 @@
               var file = e.target.files[0];
               $("#txtUrl").val(URL.createObjectURL(file));
           });
-          
+          document.write("1236456");
           $('#btnReadFile').click(function() {
             $.get($("#txtUrl").val(), function(res) {
               $("#taDisplay").text(res);
