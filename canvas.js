@@ -27,7 +27,7 @@ window.onload() = function(){
 		    x = x_start + (x_left * (i + 1));
 		    y = y_start;
 		    context.moveTo(x, y);
-		    context.lineTo(x, y_start - data_y[i]*times/100);
+		    context.lineTo(x, y_start - data_y[i]);
 		    context.stroke();
 		}
 	}
