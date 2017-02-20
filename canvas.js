@@ -1,6 +1,6 @@
-window.onload = function(){
+window.requestAnimationFrame() = function(){
 
-	var x_start = 20; //繪圖 x 座標起始點
+	var x_start = 50; //繪圖 x 座標起始點
 	var y_start = 580; //繪圖 y 座標起始點
 	var c_width = 800; //圖形區域寬
 	var c_height = 600; //圖形區域高
@@ -9,6 +9,7 @@ window.onload = function(){
 	data_y = [400, 300, 200, 350, 277, 423, 333, 410, 500, 500, 150, 300];//顯示的資料
 	data_color = ['#000000', '#000033', '#000066', '#000099', '#0000CC', '#0000FF', '#000033', '#000066'];//顯示的資料顏色
 	var canvas = document.getElementById('pcanvas');
+	
 	var context = canvas.getContext('2d');
 	context.moveTo(x_start, c_height - y_start);
 	context.lineTo(x_start, y_start);
