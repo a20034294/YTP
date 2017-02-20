@@ -10,7 +10,7 @@ window.onload() = function(){
 	data_y = [400, 300, 200, 350, 277, 423, 333, 410, 500, 500, 150, 300];//顯示的資料
 	data_color = ['#000000', '#000033', '#000066', '#000099', '#0000CC', '#0000FF', '#000033', '#000066'];//顯示的資料顏色
 	
-	for(times = 1; times <= 100; times++){
+	//for(times = 1; times <= 100; times++){
 		var canvas = document.getElementById('pcanvas');
 
 		var context = canvas.getContext('2d');
@@ -30,5 +30,5 @@ window.onload() = function(){
 		    context.lineTo(x, y_start - data_y[i]);
 		    context.stroke();
 		}
-	}
+	//}
 }
