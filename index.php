@@ -1,3 +1,3 @@
 <?php
-    include_once("_index.html");
+    include_once("_canvasindex.html");
 ?>
