@@ -67,9 +67,30 @@ function graphing(){
 }
 
 
+
+
+
+function Line_graphing(){
+	//clearRect();
+	var canvas = document.getElementById('lcanvas');
+	var context = canvas.getContext('2d');
+	context.lineWidth = '1';
+	context.strokeStyle = '#008899';
+	context.moveTo(x_start, c_height - y_start);
+	context.lineTo(x_start, y_start);
+	context.lineTo(c_width + x_start, y_start);
+	context.stroke();
+	
+
+	for (i = 0; i < data_count; i++) {
+		
+		
+	}
+}
 window.onload = function(){
 	(function animloop(){
-      graphing();
+      	graphing();
+	Line_graphing();
 	  if(times<100){
 		times++;
 		requestAnimFrame(animloop);
