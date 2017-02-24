@@ -4,44 +4,10 @@
     <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-   
-    <script src="Chart.js"></script>
-   
+    <script language="JavaScript" src="canvas.js"></script>
+    <canvas id="pcanvas" width="1024" height="768"  style="border:1px dotted red;" >  </canvas>
     
-    <div class="box">
-      <canvas id="chart-area" class="zone"></canvas>
-    </div>
-    <script>
-    var linesData = {
-        labels: ["王大毛", "孫小毛", "曾甲仙", "胡蘭德", "吳美麗", "陳扁扁", "馬久久"],
-        datasets: [
-            {
-                label: "本週業績表",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            }
-        ]
-    };
-      
-      window.onload = function(){
-      var ctx = document.getElementById("chart-area").getContext("2d");
-      var myDoughnut = new Chart(ctx).Line(data, {
-        responsive : true,
-        animationEasing: "easeOutQuart",
-    });
-};
-    </script>
     
-   
-    
-  
-
-   <script language="JavaScript" src="canvas.js"></script>
-    <canvas id="pcanvas" width="1024" height="768"  style="border:1px dotted red;" >
-          </canvas>
   </body>
 </html>
   
