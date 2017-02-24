@@ -28,6 +28,14 @@
             }
         ]
     };
+      
+      window.onload = function(){
+      var ctx = document.getElementById("chart-area").getContext("2d");
+      var myDoughnut = new Chart(ctx).Line(data, {
+        responsive : true,
+        animationEasing: "easeOutQuart",
+    });
+};
     </script>
     
   </body>
